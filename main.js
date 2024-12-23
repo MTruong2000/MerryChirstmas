@@ -11,7 +11,7 @@ const secondsContainer = document.getElementById("countdown-seconds");
 const startCounter = setInterval(() => {
   const today = new Date();
   const targetYear = 1900 + today.getYear();
-  const targetDate = new Date(`December 24, ${targetYear} 00:00:00`).getTime();
+  const targetDate = new Date(`December 25, ${targetYear} 00:00:00`).getTime();
   const now = today.getTime();
   const timeLeft = targetDate - now;
   const days = Math.floor(timeLeft / D);
@@ -136,15 +136,15 @@ window.onload = function (e) {
   const mailContent = document.getElementById("mailContent");
   const mailSign = document.getElementById("mailSign");
 
-  const greetings = [
-    "Merry Christmas and a Happy New Year! May your days be filled with joy, laughter, and the warmth of loved ones. Don’t forget to leave me some cookies and milk—Santa needs his fuel for all that gift delivering! Stay jolly and bright!",
-    "Greetings from the North Pole! I’ve checked my list twice, and you’re on the “Nice” list (of course!). May your Christmas sparkle like Rudolph’s nose and your New Year be as magical as a sleigh ride under the stars. Wishing you stockings full of surprises and hearts full of happiness.",
-    "The elves and I are wrapping up the year with one wish for you: a holiday season filled with love, laughter, and lots of snowflakes! Remember, the magic of Christmas isn’t just in the presents, but in the smiles we share. Wishing you a New Year as wonderful as a fresh batch of cookies!",
-    "Ready your sleigh, dear friend—it’s time to dash into a holiday season filled with wonder and adventure! May your Christmas be merry, your New Year be bright, and your heart be full of magic. Remember, wherever you go, the spirit of the season follows.",
-    "Happy Christmas and a joyful New Year to you! Let this season remind you of all the good in the world—the laughter of children, the kindness of strangers, and the hope in every heart. And don’t forget, the greatest gifts aren’t under the tree—they’re the memories we make together.",
-    "Jingle bells, jingle bells, you’re on my way! The reindeer and I are gearing up for a magical night, and I’ve got some goodies with your name on them. May your Christmas be sweet as candy canes and your New Year full of sparkle. Don’t forget to save me a cookie or two!"
-  ];
+  const greetings = `
+    Chúc mừng Giáng sinh toàn thể đại gia đình AVE Global ! 🎄🎉
+    
+    Năm nay, chúng ta đã cùng nhau trải qua một chặng đường đầy thử thách nhưng cũng đầy tiếng cười. Để khép lại năm cũ, mình hy vọng dự án sắp tới sẽ “win” thật lớn, để chúng ta có thể tiếp tục đồng hành bên nhau lâu dài, gắn kết hơn nữa trong những thử thách phía trước. 💪
 
+    Chúc mọi người một mùa Giáng sinh thật vui vẻ, tràn ngập yêu thương và ấm áp bên những người thân yêu. Chúc năm mới mang đến cho chúng ta nhiều thành công và cơ hội mới. 🎁✨
+
+    Merry Christmas và Happy New Year! 🎉
+    `;
   const signs = [
     "With love,",
     "Yours merrily,",
@@ -156,10 +156,8 @@ window.onload = function (e) {
 
   // "Show the dialog" button opens the dialog modally
   showButton.addEventListener("click", () => {
-    const randomGreeting =
-      greetings[Math.floor(Math.random() * greetings.length)];
     const randomSign = signs[Math.floor(Math.random() * signs.length)];
-    mailContent.textContent = randomGreeting;
+    mailContent.innerHTML = greetings.replace(/\n/g, "<br>");
     mailSign.textContent = randomSign;
     dialog.showModal();
   });
