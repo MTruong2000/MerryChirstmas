@@ -10,8 +10,8 @@ const secondsContainer = document.getElementById("countdown-seconds");
 
 const startCounter = setInterval(() => {
   const today = new Date();
-  const targetYear = 1900 + today.getYear() + 1;
-  const targetDate = new Date(`January 1, ${targetYear} 00:00:00`).getTime();
+  const targetYear = 1900 + today.getYear();
+  const targetDate = new Date(`December 24, ${targetYear} 00:00:00`).getTime();
   const now = today.getTime();
   const timeLeft = targetDate - now;
   const days = Math.floor(timeLeft / D);
